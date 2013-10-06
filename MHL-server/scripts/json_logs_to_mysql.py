@@ -83,15 +83,17 @@ f = open(args.log_file)
 # Read each line of the log file, pull out lines representing a PatientEncounterForm in JSON format, and store these all in a list
 json_strings = []
 for line in f:
-    print line
     if line.startswith(JSON_LINE_START):
-        print line
+#        print line
         json_strings.append(line)
 
 # Parse each JSON string into a map of key/value pairs corresponding to fields in the MySQL PatientEncounterForm table
 json_maps = []
 for item in json_strings:
-    dict = json.loads(item)
+    try:
+        dict = json.loads(item)
+    except:
+        print item
 #    skip = False
 #    for item in dict.keys():
 #        if item in OBSOLETE_FIELDS:
