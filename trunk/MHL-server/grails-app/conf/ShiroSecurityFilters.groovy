@@ -9,6 +9,10 @@ class ShiroSecurityFilters {
                 // Ignore direct views (e.g. the default main index page).
                 if (!controllerName) return true
 
+				if (actionName == "upload") {
+					return true
+				}
+
                 // Access control by convention.
                 accessControl()
             }
