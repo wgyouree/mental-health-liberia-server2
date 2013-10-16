@@ -39,7 +39,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/mentalhealthliberia"
+            url = "jdbc:mysql://localhost/mentalhealthliberia?autoReconnect=true"
             dialect = BooleanFixDialect
         }
     }
